@@ -1,0 +1,15 @@
+services:
+  nginx-freebsd:
+    build: nginx-freebsd/
+    ports:
+      - "5000:80"
+    volumes:
+      - /mnt/freebsd:/usr/share/nginx/html/
+      #- /mnt/freebsd/usr/share/doc/ntp:/usr/share/nginx/html/
+  nginx-ubuntu:
+    build: nginx-ubuntu/
+    ports:
+      - "6000:80"
+    volumes:
+      - /mnt/ubuntu:/usr/share/nginx/html/
+      - ./nginx-ubuntu/default.conf:/etc/nginx/conf.d/default.conf
